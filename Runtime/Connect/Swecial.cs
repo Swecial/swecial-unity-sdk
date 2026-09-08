@@ -148,16 +148,11 @@ public class Swecial : MonoBehaviour {
 			}
 		}
 	}
-    public static DateTimeOffset time() {
-        return new DateTimeOffset(DateTime.UtcNow).AddMilliseconds(timeDiff);
-    }
 	public static bool isSynced {
 		get {
 			return isTimeSynced && getMasterUser() != null && Swecial.time() != DateTimeOffset.MinValue;
 		}
 	}
-	public static DateTimeOffset localTime() { return getLocalTime(); }
-	public DateTimeOffset getTime() { return time(); }
 	public static double getLocalUTCOffset() {
         return TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).TotalHours;
 	}
@@ -353,7 +348,7 @@ public class Swecial : MonoBehaviour {
 		timeDiff = (serverTime - DateTimeOffset.UtcNow).Ticks;
 		isTimeSynced = true;
 	}
-	internal DateTimeOffset getTime() {
+	public DateTimeOffset getTime() {
 		if (isTimeSynced) {
 			var timeToReturn = DateTimeOffset.UtcNow.Add(new TimeSpan(timeDiff));
 			return timeToReturn;
@@ -361,14 +356,14 @@ public class Swecial : MonoBehaviour {
 			return DateTimeOffset.MinValue;
 		}
 	}
-	internal static DateTimeOffset localTime() {
+	public static DateTimeOffset localTime() {
 		if (Swecial.current != null) {
 			return Swecial.current.getTime().ToLocalTime();
 		} else {
 			return DateTimeOffset.MinValue;
 		}
 	}
-	internal static DateTimeOffset time() {
+	public static DateTimeOffset time() {
 		if (Swecial.current != null) {
 			return Swecial.current.getTime();
 		} else {

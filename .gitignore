@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# IDE / Metadata
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+
+# Build & Logs
+bin/
+obj/
+Logs/

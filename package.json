@@ -1,0 +1,16 @@
+{
+  "name": "com.swecial.unity",
+  "version": "1.0.0",
+  "displayName": "Swecial Unity SDK",
+  "description": "Unity SDK for Swecial backend APIs, data storage, and authentication.",
+  "unity": "6000.0",
+  "keywords": [
+    "swecial",
+    "sdk",
+    "backend",
+    "api"
+  ],
+  "author": {
+    "name": "Swecial Team"
+  }
+}

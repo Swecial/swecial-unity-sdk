@@ -148,17 +148,22 @@ public class Swecial : MonoBehaviour {
 			}
 		}
 	}
+    public static DateTimeOffset time() {
+        return new DateTimeOffset(DateTime.UtcNow).AddMilliseconds(timeDiff);
+    }
 	public static bool isSynced {
 		get {
-			return isTimeSynced && getMasterUser() != null && time() != DateTimeOffset.MinValue;
+			return isTimeSynced && getMasterUser() != null && Swecial.time() != DateTimeOffset.MinValue;
 		}
 	}
+	public static DateTimeOffset localTime() { return getLocalTime(); }
+	public DateTimeOffset getTime() { return time(); }
 	public static double getLocalUTCOffset() {
         return TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).TotalHours;
 	}
 	public static DateTimeOffset getLocalTime() {
-		if (Swecial.current.getTime() > DateTimeOffset.MinValue) {
-			return Swecial.current.getTime().AddHours(getLocalUTCOffset());
+		if (time() > DateTimeOffset.MinValue) {
+			return time().AddHours(getLocalUTCOffset());
 		} else {
 			return DateTimeOffset.MinValue;
 		}

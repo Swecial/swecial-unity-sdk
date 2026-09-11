@@ -1,6 +1,8 @@
 # Swecial Unity SDK (`com.swecial.unity`)
 
-Official Unity SDK for Swecial backend services, API communication, authentication, and data storage.
+Official Unity SDK for Swecial backend services, API communication, authentication, and data storage. 
+
+🔗 **Related Repository:** [Swecial Server](https://github.com/Swecial/swecial-server) - The .NET backend server that this SDK communicates with.
 
 ## 📦 Installation via Unity Package Manager (UPM)
 
